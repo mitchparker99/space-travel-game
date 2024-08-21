@@ -1,0 +1,272 @@
+/* @Author: Nirajan Shrestha - 000934040
+   July 27, 2024
+*/
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonts */
+.orbitron {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* FOnts sizes for smaller screen */
+h1{
+  font-size: 2em !important;
+}
+
+h3{
+  font-size: 1rem;
+}
+
+p, li, ul{
+  font-size: 0.875rem;
+}
+
+a{
+  font-size: 0.6rem;
+}
+
+/* Start screen of the game */
+.startScreen{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.startButton, .playButton{
+  background-color: #1e90ff;
+  color: black;
+  border: none;
+  width: 80px;
+  height: 40px;
+  padding: 2px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.startButton:hover{
+ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+ transition: 1s ease-out;
+}
+
+.playButton:hover{
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  transition: 1s ease-out;
+ }
+
+
+/* game-background elements and animations */
+.full-screen {
+    background-color: #000; /* Dark background color */
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: none;
+  }
+
+  .star{
+    position: absolute;
+    border-radius: 50%;
+    
+    
+  }
+
+
+
+/* Space ship style */
+
+#spaceShip{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+   /*  animation: rotate 10s linear infinite; /* Rotation animation */
+}
+
+.gElem1{
+  z-index: 100;
+}
+
+
+/* asteroid and fuel */
+.asteroid{
+  position: absolute;
+  top: 0;
+}
+
+.fuel{
+  position: absolute;
+  top: 0;
+}
+
+/* mobile-controls for smaller screen */
+.controls{
+  position: absolute;
+  top: 77vh;
+  z-index: 300;
+}
+
+/* Game over sreen */
+.gameOver{
+  display: none;
+  position: fixed;
+  top: 50%;
+  width: 100vw;
+}
+
+/* Styles for info screen */
+.gameInfo{
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  display: none;
+}
+
+.infoScreen{
+  width: 80%;
+  height: auto;
+  background-color: #D3D3D3;
+}
+
+/* Distance travelled */
+#travel{
+  display: none;
+  color: white;
+  position: fixed;
+  top: 10px;
+  right: 40px;
+}
+#antiMatter{
+  display: none;
+  color: white;
+  position: fixed;
+  top: 40px;
+  right: 40px;
+}
+
+.gameName{
+  animation: floating 3s ease-in-out infinite;
+}
+
+
+
+.credit{
+  position: absolute;
+  top: 93vh;
+
+}
+.creditInfo{
+  position: absolute;
+  top: 95vh;
+  font-size: 0.4em;
+  left: 33vw;
+}
+
+/* ANimations */
+@keyframes rotate {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes floating {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-20px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleAnimation {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.2);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+
+/* Media quries */
+@media (min-width:769px){
+  .controls{
+    display: none !important;
+  }
+  h1{
+    font-size: 6.5em !important;
+  }
+  h3{
+    font-size: 1.75rem;
+  }
+
+  p,li,ul{
+    font-size: 1.125rem;
+  }
+
+  .startButton{
+    width: 120px;
+    height: 60px;
+  }
+
+  .gameInfo{
+    height: 100vh;
+  }
+
+  .startButton, .playButton{
+    font-size: 1.125rem;
+  }
+
+  .creditInfo{
+    left: 45vw;
+  }
+}
+
